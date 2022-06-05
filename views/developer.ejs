@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./css/style.css" />
+  <title>Movie App</title>
+</head>
+
+<body>
+  <header>
+    <div class="title">
+      <h1>Koleksi Games</h1>
+    </div>
+    <ul>
+      <li>
+        <h3><a href="/">Home</a></h3>
+      </li>
+      <li>
+        <h3><a href="/games">Games</a></h3>
+      </li>
+      <li>
+        <h3><a href="/developer">Developer</a></h3>
+      </li>
+    </ul>
+  </header>
+
+  <div class="container">
+    <div class="">
+      <h1>Selamat Datang di Koleksi Games</h1>
+    </div>
+    <div class="desc">
+      <p>
+        Koleksi Games adalah sebuah website yang menyediakan informasi mengenai games. Koleksi Games menyediakan
+        informasi mengenai games yang telah dibuat oleh para pengembang.
+      </p>
+    </div>
+    <div class="search-wrapper">
+      <div class="input-holder">
+        <form id="form" action="/developer">
+          <input type="search" name="search" id="search" class="search search-input" placeholder="Search">
+        </form>
+      </div>
+    </div>
+
+  </div>
+
+  <span class="title-main">
+    <h1>Developer</h1>
+  </span>
+
+  <main id="main">
+    <% if(data.length> 0) { %>
+      <% data.forEach(function(data) { %>
+        <div class="movie">
+          <img src="<%= data.logo %>">
+          <div class="movie-info">
+            <h3>
+              <%= data.developer %>
+            </h3>
+          </div>
+          <div class="overview">
+            <h3>Detail</h3>
+            <p>Founder : <%= !data.founder ? "unknown" : data.founder %>
+            </p>
+            <p>Product : <%= data.games %>
+            </p>
+            <p>Founded : <%= !data.founded ? "unknown" : data.founded %>
+            </p>
+          </div>
+        </div>
+        <% }) %>
+          <% } %>
+  </main>
+
+  <script src="js/index.js"></script>
+</body>
+
+</html>
